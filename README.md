@@ -12,4 +12,9 @@ Instructions to begin with Flask.
 6. You have created your very first app in Flask. Congratulations!!!
 
 
-<strong>Reference:</strong> https://www.udemy.com/course/rest-api-flask-and-python/
+<strong>Reference:</strong>
+1. https://www.udemy.com/course/
+rest-api-flask-and-python/
+
+2. https://flask-restful.readthedocs.io/en/latest/quickstart.html
+3. https://hackersandslackers.com/flask-routes
