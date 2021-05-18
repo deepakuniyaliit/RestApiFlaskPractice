@@ -1,0 +1,10 @@
+Useful Commands to install and use - 
+# virtual environment for a neat and clean processing. 
+# Flask RESTful that will help us to create rest apis very easily.
+
+1. pip3 install virtualenv
+2. virtualenv venv --python=python3
+3. source venv/bin/activate
+4. deactivate
+5. pip3 install Flask-RESTful
+6. pip3 freeze > requirements.txt
