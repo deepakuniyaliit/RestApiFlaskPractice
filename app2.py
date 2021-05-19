@@ -25,6 +25,10 @@ from flask.templating import render_template
 
 app = Flask(__name__)
 
+'''
+Normally these resources will be stored in a database but we are using a set of data structures
+in our case i.e. list and disctionary.
+'''
 stores = [
     {
         'name':'My Beutiful Store',
