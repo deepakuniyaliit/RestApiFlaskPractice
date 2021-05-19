@@ -5,7 +5,7 @@ This flask repository will cover the basic Flask concepts beginning with install
 Instructions to begin with Flask.
 
 1. Install Flask by using the following command - pip3 install Flask
-2. Create app.py as first file, write first app to return "Hello World"
+2. Create app1.py as first file, write first app to return "Hello World"
 3. Alternatively you can write function to return Hello World! in BOLD, which will show the text in Heading form.
 4. Run flask app using - python3 app1.py
 5. Copy the IP address - http://127.0.0.1:5000/ on web page (modify the port number accordingly).
@@ -18,3 +18,5 @@ Instructions to begin with Flask.
 2. https://flask-restful.readthedocs.io/en/latest/quickstart.html
 
 3. https://hackersandslackers.com/flask-routes
+
+4. https://blog.teclado.com/
