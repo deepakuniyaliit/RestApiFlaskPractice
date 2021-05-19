@@ -22,6 +22,7 @@ Following HTTP status codes are necessary for this tutorial -
 '''
 
 app = Flask(__name__)
+app.secret_key = 'deepak'
 api = Api(app)
 
 items = []
@@ -55,7 +56,7 @@ class Item(Resource):
         '''
         if next(filter(lambda x:x['name'] == name, items), None) is not None:
             return {"message":"An item with name '{}' already exists.".format(name)}, 400
-            
+
         request_data = request.get_json(silent=True)
         item = {"name":name, "price":request_data['price']}
         items.append(item)
