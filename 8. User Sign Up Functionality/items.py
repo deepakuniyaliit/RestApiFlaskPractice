@@ -39,16 +39,8 @@ class Item(Resource):
         return {'message':'item not found'}, 404
 
 
-    def post(self,name):
-        '''
-        store item to the database if it doesn't exists in the databse already
-        '''
-        if self.find_by_name(name):
-            return {'message':"An item with name '{}' already exits.".format(name)}, 400
-
-        request_data = Item.parser.parse_args()
-        item = {"name":name, "price":request_data['price']}
-
+    @classmethod
+    def insert(cls, item):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
@@ -58,7 +50,23 @@ class Item(Resource):
         connection.commit()
         connection.close()
 
-        return item, 201 
+
+    def post(self,name):
+        '''
+        store item to the database if it doesn't exists in the databse already
+        '''
+        if self.find_by_name(name):
+            return {'message':"An item with name '{}' already exits.".format(name)}, 400
+
+        request_data = Item.parser.parse_args()
+        item = {"name":name, "price":request_data['price']}
+        try:
+            self.insert(item)
+        except:
+            return {"message":"An error occurred inserting the data"}, 500
+
+        return item, 201
+
 
     def delete(self,name):
         '''
