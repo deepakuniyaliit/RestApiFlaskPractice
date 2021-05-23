@@ -1,3 +1,5 @@
+import os
+
 from models.store import StoreModel
 from flask import Flask
 from flask_restful import Api
@@ -9,15 +11,10 @@ from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL_UPDATED', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'deepak'
 api = Api(app)
-
-# import every resource or model for which we need to create tables automatically
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 jwt = JWT(app, authenticate, identity)
 
